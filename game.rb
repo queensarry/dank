@@ -1,5 +1,5 @@
 #how many guesses?
-guesses=5
+guesses=7
 #we need a randomly generated number
 answer=rand 50
 has_won=false
@@ -8,7 +8,17 @@ has_won=false
 7.times do
     puts "Make a guess!!!!!!!!!!!!!!!!"
 
-    guess = gets.to_i
+    valid_guess = false
+    until valid_guess do
+        guess = gets.to_i  
+        valid_guess = (1..50).include? guess
+        puts "error" unless valid_guess
+    end
+
+    
+    #puts error for everything that isn't (1..50) and does not use a guess 
+   
+
     if guess > answer
         puts "lower"
     end
